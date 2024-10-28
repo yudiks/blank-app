@@ -11,14 +11,14 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 
 st.title("🎈 Story Writer")
 st.header(" Generating an inspiring story every day ")
-story_title = st.text_input(label='what story you want to create?')
+story_title = st.text_input('')
+generate_button = st.button('Generate')
 
 def stream_data(response):
     for chunk in response:
         yield chunk.text + " "
-        time.sleep(2)
+        time.sleep(1.5)
 
-if len(story_title) > 0:
+if generate_button and len(story_title) > 0:
     response = model.generate_content(story_title, stream=True)
     st.write_stream(stream_data(response))
-
