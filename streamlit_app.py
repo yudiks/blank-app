@@ -17,7 +17,7 @@ st.header(" Generating an inspiring story every day ")
 story_title = st.text_input('')
 generate_button = st.button('Generate')
 
-prompt = 'create a story for 8 years old with approximately about a 100 words long about'
+prompt = 'Create a story for 8 years old with approximately about a 400 words long about'
 
 def stream_data(response):
     for chunk in response:
